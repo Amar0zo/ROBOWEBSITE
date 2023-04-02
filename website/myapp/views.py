@@ -8,6 +8,6 @@ def index(request):
     if request.method == 'POST':
         robot.send_command('brake release')
 
-    robot.disconnect()
+   # robot.disconnect()
 
     return render(request, 'index.html', {'connected': robot.connected})
