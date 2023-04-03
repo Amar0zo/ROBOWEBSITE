@@ -23,6 +23,12 @@
     {% else %}
         <h1>Status: Not Connected</h1>
     {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="robot_ip">Robot IP:</label>
+        <input type="text" id="robot_ip" name="robot_ip">
+        <input type="submit" value="Connect">
+    </form>
     </div>
 
     
