@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
 
@@ -18,12 +20,90 @@
 
 .printer-section {
     background-color: #e6e6e6;
-    width: 48%;
-    height: 100%;
+    width: 30%;
+    height: 30%;
     padding: 10px;
     box-sizing: border-box;
     border: 2px solid black;
-    float: right;
+    margin: 2.5%;
+    float: left;
+}
+
+.printer-name {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.printer-status {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.printer-webcam {
+    display: block;
+    -webkit-user-select: none;
+    margin: 5px;
+    width: 45%;
+    height: 90%;
+    float: left;
+    margin-top: 5%;
+}
+
+.printer-info {
+    float: left;
+    width: 45%;
+}
+
+.printer-filament {
+    text-align: center;
+
+}
+
+.printer-htemp,.printer-btemp,.printer-filament {
+    text-align: center;
+    height: 33%;
+    width: 100%;
+    margin: 10%;
+}
+.printer-gcode {
+    clear: both;
+    width: 100%;
+    text-align: center;
     margin: 10px;
+}
+
+.printer-progress {
+    border: 2px solid black;
+    width: 95%;
+    padding: 7px;
+
+}
+
+.printer-subcontainer {
+    height: 35%;
+}
+
+.printer-more {
+    float: left;
+    width: 90%;
+    height: 30px;
+}
+
+.printer-settings {
+    float: left;
+    width: 10%;
+    height: 30px;
+}
+
+.printer-settings,.printer-more {
+    text-align: center;
+}
+
+.progressbar {
+    width: 100%;
+    text-align: center;
+    margin: auto;
 }
 
