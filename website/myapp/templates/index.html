@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Robo</title>
+    <meta charset="UTF-8">
+    <title>My App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
 </head>
 <body>
-    {% if connected %}
-    <h1>Status: Connected</h1>
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" value="Breake release">
-    </form>
-{% else %}
-    <h1>Status: Not Connected</h1>
-{% endif %}
+<div class="container">
+        <div class="robot-section">
+            <h2>Robot</h2>
+            <p>Opis sekcji Robot</p>
+        {% if connected %}
+        <h1>Status: Connected</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Breake release">
+        </form>
+    {% else %}
+        <h1>Status: Not Connected</h1>
+    {% endif %}
+    </div>
 
+    
+    <div class="printer-section">
+        <h2>Drukarka</h2>
+        <p>Opis sekcji Drukarka</p>
+    </div>
+</div>
 </body>
 </html>

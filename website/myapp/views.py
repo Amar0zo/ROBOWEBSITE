@@ -2,7 +2,7 @@ from django.shortcuts import render
 from myapp.robot import Robot
 
 def index(request):
-    robot = Robot('192.168.1.101', 29999)
+    robot = Robot('192.168.0.19', 29999)
     robot.connect()
 
     if request.method == 'POST':
