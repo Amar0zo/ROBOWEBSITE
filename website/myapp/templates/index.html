@@ -27,9 +27,26 @@
 
     
     <div class="printer-section">
-        <h2>Drukarka</h2>
-        <p>Opis sekcji Drukarka</p>
+        <h2 class="printer-name">Drukarka</h2>
+        <p class="printer-status" id="printer-status">Status drukarki: </p>
+        <div class="printer-subcontainer">
+            <img class="printer-webcam" src="http://192.168.0.27/webcam/?action=stream">
+            <div class="printer-info">
+                <p class="printer-filament">Filament:</p>
+                <p class="printer-htemp">Temperatura:</p>
+                <p class="printer-btemp">Temperatura:</p>
+            </div>
+        </div>
+
+        <p class="printer-gcode">Nazwa pliku.gcode</p>
+        <div class="printer-progress">
+            <p class="progressbar">10%</p>
+        </div>
+        <p class="printer-printtime"></p>
+        <button class="printer-more">Więcej</button>
+        <button class="printer-settings">123</button>
     </div>
 </div>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
