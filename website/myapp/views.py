@@ -1,19 +1,27 @@
 from django.shortcuts import render
-from myapp.robot import Robot
+import socket
 
 def index(request):
+    connected = False
+    joints = []
     if request.method == 'POST':
-        robot_ip = request.POST.get('robot_ip')
-        robot = Robot()
-        if robot.connect(robot_ip):
-            return HttpResponse('Robot connected successfully!')
-        else:
-            return HttpResponse('Failed to connect to the robot!')
-    return render(request, 'index.html')
-
-    if request.method == 'POST':
-        robot.send_command('brake release')
-
-   # robot.disconnect()
-
-    return render(request, 'index.html', {'connected': robot.connected})
+        if 'robot_ip' in request.POST:
+            robot_ip = request.POST['robot_ip']
+            try:
+                robot_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                robot_socket.settimeout(2)
+                robot_socket.connect((robot_ip, 30002))
+                robot_socket.settimeout(None)
+                connected = True
+                joints = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']
+            except:
+                pass
+        elif 'brake_release' in request.POST:
+            pass  # do something
+        elif 'command' in request.POST:
+            pass  # do something
+        elif 'power_on' in request.POST:
+            pass  # do something
+        elif 'power_off' in request.POST:
+            pass  # do something
+    return render(request, 'index.html', {'connected': connected, 'joints': joints})
