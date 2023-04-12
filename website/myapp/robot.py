@@ -42,20 +42,6 @@ class Robot:
                 return False
         else:
             return False
-
-    def get_joints(self):
-        (status, response) = self.send_command("getj")
-        if status:
-            try:
-                response = response[1:-2]  # usunięcie niepotrzebnego znaku "b'" z początku i "'\n" z końca odpowiedzi
-                joints_str = response.split(",")
-                joints = [float(joint_str) for joint_str in joints_str]
-                return joints
-            except:
-                return []
-        else:
-            return []
-
     def disconnect(self):
         self.sock.close()
         self.connected = False
