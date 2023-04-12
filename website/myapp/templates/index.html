@@ -33,24 +33,25 @@
 
     
     <div class="printer-section">
-        <h2 class="printer-name">Drukarka</h2>
+        <h2 class="printer-name" id="printer-name">Drukarka</h2>
         <p class="printer-status" id="printer-status">Status drukarki: </p>
         <div class="printer-subcontainer">
-            <img class="printer-webcam" src="http://192.168.0.27/webcam/?action=stream">
+            <img class="printer-webcam" src="http://192.168.0.14/webcam/?action=stream">
             <div class="printer-info">
                 <p class="printer-filament">Filament:</p>
-                <p class="printer-htemp">Temperatura:</p>
-                <p class="printer-btemp">Temperatura:</p>
+                <p class="printer-btemp" id="printer-btemp">Temperatura:</p>
+                <p class="printer-htemp" id="printer-htemp">Temperatura:</p>
             </div>
         </div>
 
-        <p class="printer-gcode">Nazwa pliku.gcode</p>
+        <p class="printer-gcode" id="printer-gcode">Nazwa pliku.gcode</p>
         <div class="printer-progress">
-            <p class="progressbar">10%</p>
+            <p class="progressbar" id="progressbar">10%</p>
         </div>
-        <p class="printer-printtime"></p>
-        <button class="printer-more">Więcej</button>
-        <button class="printer-settings">123</button>
+        <a  href="/printer_more">
+            <button class="printer-more">Więcej</button>
+        </a>
+        <button class="printer-settings" style="background-image: url('{% static 'img/gear.png' %}')";"></button>
     </div>
 </div>
 <script src="{% static 'js/script.js' %}"></script>

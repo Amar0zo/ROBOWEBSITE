@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.template import loader
 from myapp.robot import Robot
 
 def index(request):
@@ -18,3 +19,7 @@ def index(request):
    # robot.disconnect()
 
     return render(request, 'index.html', {'connected': robot.connected})
+
+def printer_more(request):
+  template = loader.get_template('printer_more.html')
+  return HttpResponse(template.render())

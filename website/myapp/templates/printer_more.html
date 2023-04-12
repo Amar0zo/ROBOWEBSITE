@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prusa</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/printer-more-style.css' %}"/>
+</head>
+<body>
+    <button class="back"></button>
+    <h1 class="title" id="printer-name">Drukarka - więcej (Nazwa drukarki)</h1>
+    <div class="container">
+        <div class="webcam">
+            <img class="printer-webcam" src="http://192.168.0.14/webcam/?action=stream">
+        </div>
+        <div class="job">
+            <p class="printer-status" id="printer-status"></p>
+            <p class="printer-gcode" id="printer-gcode"></p>
+            <p class="printer-time" id="printer-time"></p>
+            <p class="printer-timeleft" id="printer-timeleft"></p>
+            <p class="printer-material" id="printer-material"></p>
+            <p class="printer-material-size" id="printer-material-size"></p>
+            <button class="print-btn" id="print-btn">Drukuj</button>
+            <button class="pause-btn" id="pause-btn">Przerwij</button>
+            <button class="stop-btn" id="stop-btn">Zakończ</button>
+        </div>
+        <div class="temp"></div>
+        <div class="files"></div>
+        <div class="control"></div>
+        <div class="connection"></div>
+    </div>
+    <script src="{% static 'js/script_more.js' %}"></script>
+</body>
+</html>
