@@ -13,22 +13,35 @@
 <div class="container">
         <div class="robot-section">
             <h2>Robot</h2>
-            <p>Opis sekcji Robot</p>
+        <p>Opis sekcji Robot</p>
         {% if connected %}
-        <h1>Status: Connected</h1>
+            <h1>Status: Connectedd</h1>
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" name="brake_release" value="Breake release">
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="command" placeholder="Enter command">
+                <input type="submit" value="Send">
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" name="power_off" value="Power Off">
+            </form>
+        {% else %}
+            <h1>Status: Not Connected</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="robot_ip">Robot IP:</label>
+                <input type="text" id="robot_ip" name="robot_ip">
+                <input type="submit" value="Connect">
+            </form>
+        {% endif %}
         <form method="post">
             {% csrf_token %}
-            <input type="submit" value="Breake release">
+            <input type="submit" name="power_on" value="Power On">
         </form>
-    {% else %}
-        <h1>Status: Not Connected</h1>
-    {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <label for="robot_ip">Robot IP:</label>
-        <input type="text" id="robot_ip" name="robot_ip">
-        <input type="submit" value="Connect">
-    </form>
     </div>
 
     
