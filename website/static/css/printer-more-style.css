@@ -26,3 +26,55 @@
     width: 100%;
     height: 100%;
 }
+
+.printer-status,.printer-gcode,.printer-time,.printer-timeleft,.printer-material,.printer-material-size {
+    text-align: center;
+    width: 100%;
+}
+
+.progressbar {
+    width: 100%;
+    text-align: center;
+    margin: 6px;
+    margin-left: 0%;
+}
+
+.printer-progress {
+    border: 2px solid black;
+    height: 10%;
+    padding: 7px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.print-btn,.pause-btn,.stop-btn {
+    width: 30%;
+    margin: 1%;
+    margin-top: 1%;
+    height: 10%
+    margin-top: 1%;
+}
+
+table {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+.up {
+    background-color: yellow;
+}
+.down {
+    background-color: red;
+}
+.left {
+    background-color: blue;
+}
+.right {
+    background-color: green;
+}

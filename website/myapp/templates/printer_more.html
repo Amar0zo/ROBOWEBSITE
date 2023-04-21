@@ -16,20 +16,61 @@
             <img class="printer-webcam" src="http://192.168.0.14/webcam/?action=stream">
         </div>
         <div class="job">
-            <p class="printer-status" id="printer-status"></p>
-            <p class="printer-gcode" id="printer-gcode"></p>
-            <p class="printer-time" id="printer-time"></p>
-            <p class="printer-timeleft" id="printer-timeleft"></p>
-            <p class="printer-material" id="printer-material"></p>
-            <p class="printer-material-size" id="printer-material-size"></p>
+            <p class="printer-status" id="printer-status">Stan:</p>
+            <p class="printer-gcode" id="printer-gcode">Nazwa pliku</p>
+            <p class="printer-time" id="printer-time">Czas trwania</p>
+            <p class="printer-timeleft" id="printer-timeleft">Pozostały czas:</p>
+            <p class="printer-material" id="printer-material">Wymagany materiał:</p>
+            <p class="printer-material-size" id="printer-material-size">Wymagana ilość materiału:</p>
+            <div class="printer-progress">
+                <p class="progressbar" id="progressbar">10%</p>
+            </div>
             <button class="print-btn" id="print-btn">Drukuj</button>
             <button class="pause-btn" id="pause-btn">Przerwij</button>
             <button class="stop-btn" id="stop-btn">Zakończ</button>
         </div>
         <div class="temp"></div>
         <div class="files"></div>
-        <div class="control"></div>
-        <div class="connection"></div>
+        <div class="control">
+            <form>
+                <input type="number" placeholder="temperatura" id="liczba">
+                <input type="button" value="Ustaw temperaturę" id="send-request-button">
+                <p> 
+                  Oś X:      
+                  <input type="button" value="+" id="xplus">
+                  <input type="button" value="-" id="xmin">
+                </p>
+                <p> 
+                  Oś Y:      
+                  <input type="button" value="+" id="yplus">
+                  <input type="button" value="-" id="ymin">
+                </p>
+                <p> 
+                  Oś Z:      
+                  <input type="button" value="+" id="zplus">
+                  <input type="button" value="-" id="zmin">
+                </p>
+            </form>
+        </div>
+        <div class="connection">
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="up"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left"></td>
+                    <td></td>
+                    <td class="right"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="down"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <script src="{% static 'js/script_more.js' %}"></script>
 </body>
