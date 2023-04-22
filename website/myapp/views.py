@@ -2,6 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from myapp.robot import Robot
+from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseRedirect
+from .forms import FileUploadForm
+import os
 
 def index(request):
     connected = False
@@ -35,6 +41,18 @@ def index(request):
             pass  # do something
     return render(request, 'index.html', {'connected': connected})
 
+# def printer_more(request):
+#   template = loader.get_template('printer_more.html')
+#   return HttpResponse(template.render())
+
+@csrf_exempt
 def printer_more(request):
-  template = loader.get_template('printer_more.html')
-  return HttpResponse(template.render())
+    if request.method == 'POST':
+        form = FileUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            uploaded_file = request.FILES['file']
+            fs = FileSystemStorage()
+            filename = fs.save(uploaded_file.name, uploaded_file)
+            uploaded_file_url = fs.url(filename)
+            return HttpResponseRedirect(request.path_info)
+    return render(request, 'printer_more.html',)

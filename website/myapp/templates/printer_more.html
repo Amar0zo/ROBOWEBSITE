@@ -17,11 +17,11 @@
         </div>
         <div class="job">
             <p class="printer-status" id="printer-status">Stan:</p>
-            <p class="printer-gcode" id="printer-gcode">Nazwa pliku</p>
-            <p class="printer-time" id="printer-time">Czas trwania</p>
+            <p class="printer-gcode" id="printer-gcode">Nazwa pliku:</p>
+            <p class="printer-time" id="printer-time">Czas trwania:</p>
             <p class="printer-timeleft" id="printer-timeleft">Pozostały czas:</p>
             <p class="printer-material" id="printer-material">Wymagany materiał:</p>
-            <p class="printer-material-size" id="printer-material-size">Wymagana ilość materiału:</p>
+            <p class="printer-material-size" id="printer-material-size"></p>
             <div class="printer-progress">
                 <p class="progressbar" id="progressbar">10%</p>
             </div>
@@ -30,7 +30,15 @@
             <button class="stop-btn" id="stop-btn">Zakończ</button>
         </div>
         <div class="temp"></div>
-        <div class="files"></div>
+        <div class="files">
+            <form method="post" enctype="multipart/form-data" action="{% url 'printer_more' %}">
+
+                <input type="file" name="file" id="file">
+                <button type="submit">Prześlij</button>
+                
+              </form>
+            </form>
+        </div>
         <div class="control">
             <form>
                 <input type="number" placeholder="temperatura" id="liczba">
@@ -50,6 +58,8 @@
                   <input type="button" value="+" id="zplus">
                   <input type="button" value="-" id="zmin">
                 </p>
+                <p id="actual"></p>
+                <p id="target"></p>
             </form>
         </div>
         <div class="connection"></div>
