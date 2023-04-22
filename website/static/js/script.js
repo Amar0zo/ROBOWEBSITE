@@ -3,7 +3,7 @@ api = 'C46964C92A8B40C0B331AB1AA5441C46';
 ip = '192.168.0.14';
 
 
-fetch('http://'+ip+'/api/job',{
+fetch('http://'+ip+'/api/job'+"?apykey="+api,{
     method: 'GET',
     headers: {
         'X-Api-Key': api
