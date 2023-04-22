@@ -1,9 +1,9 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.template import loader
-from myapp.robot import Robot
-from socket import socket
-
+from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseRedirect
+from .forms import FileUploadForm
+import os
 robot_port= 29999
 robocik = Robot(port=robot_port)
 
