@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.template import loader
 from myapp.robot import Robot
 from socket import socket
-# import robot
 
 robot_port= 29999
 robocik = Robot(port=robot_port)
