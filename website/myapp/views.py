@@ -5,6 +5,7 @@ from myapp.robot import Robot
 robot_port= 29999
 robocik = Robot(port=robot_port)
 
+
 def index(request):
 
     if request.method == 'POST':
@@ -25,6 +26,18 @@ def index(request):
             pass  # do something
     return render(request, 'index.html', {'connected': robocik._connected})
 
+# def printer_more(request):
+#   template = loader.get_template('printer_more.html')
+#   return HttpResponse(template.render())
+
+@csrf_exempt
 def printer_more(request):
-  template = loader.get_template('printer_more.html')
-  return HttpResponse(template.render())
+    if request.method == 'POST':
+        form = FileUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            uploaded_file = request.FILES['file']
+            fs = FileSystemStorage()
+            filename = fs.save(uploaded_file.name, uploaded_file)
+            uploaded_file_url = fs.url(filename)
+            return HttpResponseRedirect(request.path_info)
+    return render(request, 'printer_more.html',)
